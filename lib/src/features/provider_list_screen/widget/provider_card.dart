@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
 import 'package:quickservice/src/core/constant/color_constant.dart';
+import 'package:quickservice/src/features/booking_screen/screen/booking_screen.dart';
 import 'package:quickservice/src/features/provider_list_screen/model/provider_model.dart';
 import 'package:quickservice/src/shared/widget/button.dart';
 import 'package:quickservice/src/shared/widget/elevated_container.dart';
@@ -54,7 +55,11 @@ class ProviderCard extends StatelessWidget {
                     radius: 10,
                     fontSize: 13,
                     onTap: () {
-                      
+                       fadeTo(
+                        context: context, 
+                        view: BookingScreen(
+                          provider: provider,
+                        ));
                     },
                   ),
                 ),
