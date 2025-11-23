@@ -185,7 +185,7 @@ class _BookingScreenState extends State<BookingScreen> {
                         );
                       }).toList(),
                     ),
-                    vSpace(30),
+                    vSpace(10),
                     MedAppText(
                       'Select Time',
                       color: ColorConstant.lightestGrey,
@@ -204,14 +204,14 @@ class _BookingScreenState extends State<BookingScreen> {
                           return GridSelector(
                             isSelected: _bookingController.selectedTime == time.time,
                             time:time,
-                            onTap: (){
-                              _bookingController.setSelectedTime(time.time);
+                            onTap: time.isBooked ? null : (){
+                              _bookingController.setSelectedTime(time.time, isBooked: time.isBooked);
                             },
                           );
                         }).toList()
                       )
                     ),
-                  
+                    vSpace(15),
                     HourSelector(
                       onDurationChanged: (duration) {
                         _bookingController.setSelectedDuration(duration);

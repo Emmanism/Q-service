@@ -5,27 +5,26 @@ import 'package:quickservice/src/shared/widget/text.dart';
 
 class GridSelector extends StatelessWidget {
   final Times time;
-   final VoidCallback onTap;
+   final VoidCallback? onTap;
    final bool isSelected;
   const GridSelector({
     super.key,
     required this.time,
-    required this.onTap,
+    this.onTap,
     required this.isSelected,
     });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: SmallAppText(
-       time.time,
-       fontWeight: FontWeight.bold,
-       color: time.isBooked 
-       ? ColorConstant.greyColor 
-       : isSelected  
-       ? ColorConstant.primaryColor 
-       : ColorConstant.lightestGrey,
+      onTap: time.isBooked ? null : onTap,
+      child: Opacity(
+        opacity: time.isBooked ? 0.5 : 1.0,
+        child: SmallAppText(
+         time.time,
+         fontWeight: FontWeight.bold,
+         color: time.isBooked ? ColorConstant.greyColor : isSelected  ? ColorConstant.primaryColor : ColorConstant.lightestGrey,
+        ),
       ),
     );
   }

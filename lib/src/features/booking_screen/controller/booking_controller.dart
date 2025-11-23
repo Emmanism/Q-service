@@ -4,20 +4,27 @@ class BookingController extends ChangeNotifier {
   String? _selectedDate;
   String? _selectedTime;
   String? _selectedDuration;
+  bool _isSelectedTimeBooked = false;
 
   String? get selectedDate => _selectedDate;
   String? get selectedTime => _selectedTime;
   String? get selectedDuration => _selectedDuration;
+  bool get isSelectedTimeBooked => _isSelectedTimeBooked;
 
-  bool get isBookingValid => _selectedDate != null && _selectedTime != null && _selectedDuration != null;
+  bool get isBookingValid => 
+      _selectedDate != null && 
+      _selectedTime != null && 
+      _selectedDuration != null &&
+      !_isSelectedTimeBooked;
 
   void setSelectedDate(String? date) {
     _selectedDate = date;
     notifyListeners();
   }
 
-  void setSelectedTime(String? time) {
+  void setSelectedTime(String? time, {bool isBooked = false}) {
     _selectedTime = time;
+    _isSelectedTimeBooked = isBooked;
     notifyListeners();
   }
 
@@ -46,6 +53,7 @@ class BookingController extends ChangeNotifier {
     _selectedDate = null;
     _selectedTime = null;
     _selectedDuration = null;
+    _isSelectedTimeBooked = false;
     notifyListeners();
   }
 }
