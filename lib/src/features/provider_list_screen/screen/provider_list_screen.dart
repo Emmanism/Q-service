@@ -87,10 +87,12 @@ class _ProviderListScreenState extends ConsumerState<ProviderListScreen> {
                     visible: serviceController.filteredProviders.isNotEmpty,
                     replacement: Center(
                       child: SmallAppText(
-                        'No Service Providers found'
+                        'No Service Providers found',
+                        color: ColorConstant.lightestGrey,
+                        fontSize: 17.sp,
                       )
                     ),
-                    child: ListView.separated(
+                     child: ListView.separated(
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             itemCount: serviceController.filteredProviders.length,
                             separatorBuilder: (BuildContext context, int index) {
