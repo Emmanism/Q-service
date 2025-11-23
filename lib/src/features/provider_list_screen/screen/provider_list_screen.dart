@@ -16,8 +16,6 @@ class _ProviderListScreenState extends ConsumerState<ProviderListScreen> {
  
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold();
   }
 }

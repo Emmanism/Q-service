@@ -30,7 +30,7 @@ class ProviderController extends BaseController {
        loadingState = LoadingState.idle;
        notifyListeners();
    }
-/* 
+
    void filterProviders(String query) {
      final searchQuery = query.toLowerCase();
      if (providersModel.isNotEmpty) {
@@ -41,5 +41,5 @@ class ProviderController extends BaseController {
        filteredProviders = [];
      }
      notifyListeners();
-   } */
+   } 
 }
