@@ -4,7 +4,7 @@ A Flutter application for booking service providers with real-time availability,
 
 ## Time Spent
 
-Approximately 2hrs 10mins.. 10mins for adding detailed
+Approximately 2hrs 10mins.. 10mins for adding readme details
 
 ## State Management Approach
 
