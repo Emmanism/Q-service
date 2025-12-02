@@ -9,7 +9,10 @@ import 'package:quickservice/src/features/provider_list_screen/screen/provider_l
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(ProviderScope(child: QuickService()));
+  runApp(
+    ProviderScope(
+      child: QuickService()
+      ));
 }
 
 class QuickService extends StatelessWidget {

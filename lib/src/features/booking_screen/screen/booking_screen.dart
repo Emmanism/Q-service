@@ -24,6 +24,7 @@ class BookingScreen extends StatefulWidget {
 
 class _BookingScreenState extends State<BookingScreen> {
   final BookingController _bookingController = BookingController();
+  bool _isBookingLoading = false;
 
   @override
   void dispose() {
@@ -44,6 +45,24 @@ class _BookingScreenState extends State<BookingScreen> {
       ),
     );
   }
+
+ /*  Future<void> _handleBooking() async {
+    if (_isBookingLoading || !_bookingController.isBookingValid) return;
+    setState(() {
+      _isBookingLoading = true;
+    });
+    try {
+      await Future.delayed(const Duration(seconds: 1));
+      if (!mounted) return;
+      _showConfirmationDialog();
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isBookingLoading = false;
+        });
+      }
+    }
+  } */
 
   @override
   Widget build(BuildContext context) {
@@ -243,9 +262,10 @@ class _BookingScreenState extends State<BookingScreen> {
                         BButton(
                           text: 'Book Now',
                           width: 180.w,
-                          onTap: isBookingValid ? _showConfirmationDialog : null,
+                          onTap: _bookingController.isBookingValid ? _showConfirmationDialog : null,
                           color: ColorConstant.primaryColor,
-                          isEnabled: isBookingValid,
+                          isEnabled: isBookingValid && !_isBookingLoading,
+                       
                         ),
                       ],
                     ),

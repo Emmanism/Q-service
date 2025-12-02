@@ -1,10 +1,10 @@
 
 final dates = [
-'Mon 22',
-'Tue 23',
-'Wed 24',
-'Thu 25',
-'Fri 26',
+'Tues 25',
+'Wed 26',
+'Thur 27',
+'Fri 28',
+'Sat 29',
 ];
 
 final hours = [
@@ -46,5 +46,9 @@ final times = [
   Times(
     isBooked: false,
     time:'5:00 PM',
+    ),
+  Times(
+    isBooked: false,
+    time:'7:00 PM',
     ),
 ];

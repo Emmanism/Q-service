@@ -27,7 +27,7 @@ class ProviderController extends BaseController {
      providersModel = providers;
 
       filteredProviders = List.from(providersModel);
-       loadingState = LoadingState.idle;
+      loadingState = LoadingState.idle;
        notifyListeners();
    }
 

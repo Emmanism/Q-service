@@ -18,6 +18,7 @@ class BButton extends StatelessWidget {
   final Color? borderColor;
   final Widget? child;
   final bool isEnabled;
+  final bool isLoading;
   
   const BButton({
     super.key,
@@ -35,6 +36,7 @@ class BButton extends StatelessWidget {
     this.fontWeight,
     this.child,
     this.isEnabled = true,
+    this.isLoading = false,
   });
 
   @override
@@ -62,16 +64,28 @@ class BButton extends StatelessWidget {
               : ColorConstant.greyColor,
           disabledBackgroundColor: ColorConstant.greyColor,
         ),
-        child: child ??
+        child: child ?? 
         
       Center(
-        child: SmallAppText(
-          text ?? '',
-           color: isEnabled 
-               ? (textColor ?? Colors.white)
-               : Colors.white70,
-            fontSize: fontSize ?? 17.sp,
-            fontWeight: FontWeight.bold
+        child: Visibility(
+          visible: isLoading == false,
+          replacement:  SizedBox(
+                height: 20,
+                width: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(textColor ?? Colors.white),
+                ),
+              ),
+          child: SmallAppText(
+            text ?? '',
+             color: isEnabled 
+                 ? (textColor ?? Colors.white)
+                 : Colors.white70,
+              fontSize: fontSize ?? 17.sp,
+              fontWeight: FontWeight.bold
+          ),
         ),
       )
     ));

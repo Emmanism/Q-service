@@ -43,6 +43,8 @@ class BookingController extends ChangeNotifier {
     return null;
   }
 
+
+
   double calculateTotal(double hourlyRate) {
     final hours = getDurationInHours();
     if (hours == null) return 0.0;
@@ -57,5 +59,4 @@ class BookingController extends ChangeNotifier {
     notifyListeners();
   }
 }
-
 
